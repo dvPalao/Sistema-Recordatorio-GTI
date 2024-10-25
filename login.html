@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width",
+initial-scale="1.0">
+<title>NAMEHOSPITAL</title>
+<link rel="icon" type="image/png" href="logohsp.png">
+<link rel="stylesheet" href="stylee.css">
+<script src="script.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a class="logo">NAMEHOSPITAL</a>
+
+
+        <div class="social-media">
+            <a href="#" style="--i:1;"><i class='bx bxl-instagram' ></i></a>
+            <a href="#" style="--i:2;"><i class='bx bxl-twitter' ></i></a>
+            <a href="#" style="--i:3;"><i class='bx bxl-facebook' ></i></a>
+        </div>
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+            <h1>Iniciar Sesión</h1>
+            <form id="loginForm">
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+            <p>¿No tienes una cuenta? <a href="inicio.html">Regístrate aquí</a></p>
+        </div>
+
+        <div class="home-img">
+            <div class="rhombus">
+                <img src="logohsp.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const userInput = loginForm.querySelector('input[type="text"]');
+        const passwordInput = loginForm.querySelector('input[type="password"]');
+
+        userInput.addEventListener('input', function() {
+            if (userInput.value === '') {
+                userInput.setCustomValidity('Por favor, ingresa tu nombre de usuario.'); // Mensaje personalizado
+            } else {
+                userInput.setCustomValidity(''); // Restablece el mensaje
+            }
+        });
+
+        passwordInput.addEventListener('input', function() {
+            if (passwordInput.value === '') {
+                passwordInput.setCustomValidity('Por favor, ingresa tu contraseña.'); // Mensaje personalizado
+            } else {
+                passwordInput.setCustomValidity(''); // Restablece el mensaje
+            }
+        });
+
+        // Validar el formulario antes de enviar
+        loginForm.addEventListener('submit', function(event) {
+            if (!loginForm.checkValidity()) {
+                event.preventDefault(); // Evita el envío del formulario
+                userInput.reportValidity(); // Muestra el mensaje de advertencia
+                passwordInput.reportValidity(); // Muestra el mensaje de advertencia
+            }
+        });
+    </script>
+
+</body>
+
+</html>
